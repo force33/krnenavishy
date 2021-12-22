@@ -40,14 +40,16 @@
             this.wGenderButton = new System.Windows.Forms.Button();
             this.genderLabel = new System.Windows.Forms.Label();
             this.wordCB = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.searchLabel = new System.Windows.Forms.Label();
             this.searchTB = new System.Windows.Forms.TextBox();
             this.nullGenderButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.sortLabel = new System.Windows.Forms.Label();
             this.surnameFilterButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.birthdayShowLabel = new System.Windows.Forms.Label();
             this.birthdayButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.addUserLabel = new System.Windows.Forms.Label();
+            this.openEditFormButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,8 +58,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(696, 393);
+            this.dataGridView1.Size = new System.Drawing.Size(694, 393);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // backPageButton
             // 
@@ -118,7 +121,7 @@
             // amountOfLabel
             // 
             this.amountOfLabel.AutoSize = true;
-            this.amountOfLabel.Location = new System.Drawing.Point(383, 420);
+            this.amountOfLabel.Location = new System.Drawing.Point(387, 420);
             this.amountOfLabel.Name = "amountOfLabel";
             this.amountOfLabel.Size = new System.Drawing.Size(12, 13);
             this.amountOfLabel.TabIndex = 7;
@@ -166,14 +169,14 @@
             this.wordCB.TabIndex = 11;
             this.wordCB.Text = "Выберите";
             // 
-            // label1
+            // searchLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(708, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Поиск по слову";
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Location = new System.Drawing.Point(708, 82);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(86, 13);
+            this.searchLabel.TabIndex = 14;
+            this.searchLabel.Text = "Поиск по слову";
             // 
             // searchTB
             // 
@@ -195,14 +198,14 @@
             this.nullGenderButton.UseVisualStyleBackColor = true;
             this.nullGenderButton.Click += new System.EventHandler(this.nullGenderButton_Click);
             // 
-            // label2
+            // sortLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(709, 147);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Сортировка по:";
+            this.sortLabel.AutoSize = true;
+            this.sortLabel.Location = new System.Drawing.Point(709, 147);
+            this.sortLabel.Name = "sortLabel";
+            this.sortLabel.Size = new System.Drawing.Size(85, 13);
+            this.sortLabel.TabIndex = 17;
+            this.sortLabel.Text = "Сортировка по:";
             // 
             // surnameFilterButton
             // 
@@ -214,14 +217,14 @@
             this.surnameFilterButton.UseVisualStyleBackColor = true;
             this.surnameFilterButton.Click += new System.EventHandler(this.surnameFilterButton_Click);
             // 
-            // label3
+            // birthdayShowLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(719, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Показать:";
+            this.birthdayShowLabel.AutoSize = true;
+            this.birthdayShowLabel.Location = new System.Drawing.Point(719, 190);
+            this.birthdayShowLabel.Name = "birthdayShowLabel";
+            this.birthdayShowLabel.Size = new System.Drawing.Size(59, 13);
+            this.birthdayShowLabel.TabIndex = 20;
+            this.birthdayShowLabel.Text = "Показать:";
             // 
             // birthdayButton
             // 
@@ -235,7 +238,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(712, 296);
+            this.deleteButton.Location = new System.Drawing.Point(712, 355);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(75, 50);
             this.deleteButton.TabIndex = 22;
@@ -243,19 +246,41 @@
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
+            // addUserLabel
+            // 
+            this.addUserLabel.AutoSize = true;
+            this.addUserLabel.Location = new System.Drawing.Point(715, 243);
+            this.addUserLabel.Name = "addUserLabel";
+            this.addUserLabel.Size = new System.Drawing.Size(68, 26);
+            this.addUserLabel.TabIndex = 23;
+            this.addUserLabel.Text = "Изменение \r\nданных:";
+            this.addUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // openEditFormButton
+            // 
+            this.openEditFormButton.Location = new System.Drawing.Point(712, 272);
+            this.openEditFormButton.Name = "openEditFormButton";
+            this.openEditFormButton.Size = new System.Drawing.Size(75, 23);
+            this.openEditFormButton.TabIndex = 24;
+            this.openEditFormButton.Text = "перейти";
+            this.openEditFormButton.UseVisualStyleBackColor = true;
+            this.openEditFormButton.Click += new System.EventHandler(this.openEditFormButton_Click);
+            // 
             // MainDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 446);
+            this.Controls.Add(this.openEditFormButton);
+            this.Controls.Add(this.addUserLabel);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.birthdayButton);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.birthdayShowLabel);
             this.Controls.Add(this.surnameFilterButton);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.sortLabel);
             this.Controls.Add(this.nullGenderButton);
             this.Controls.Add(this.searchTB);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.wordCB);
             this.Controls.Add(this.genderLabel);
             this.Controls.Add(this.wGenderButton);
@@ -278,8 +303,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button backPageButton;
         private System.Windows.Forms.Button allDataButton;
         private System.Windows.Forms.Button nextPageButton;
@@ -291,14 +314,17 @@
         private System.Windows.Forms.Button wGenderButton;
         private System.Windows.Forms.Label genderLabel;
         private System.Windows.Forms.ComboBox wordCB;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.TextBox searchTB;
         private System.Windows.Forms.Button nullGenderButton;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label sortLabel;
         private System.Windows.Forms.Button surnameFilterButton;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label birthdayShowLabel;
         private System.Windows.Forms.Button birthdayButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label addUserLabel;
+        private System.Windows.Forms.Button openEditFormButton;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

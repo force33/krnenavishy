@@ -21,6 +21,18 @@ namespace krnenavishy
         public int firstItem = 3018;
         public int pageNumber;
         public int GenderIndex = 0;
+        public static int SelectedID = 0;
+        public void QueryDelete() 
+        {
+            int a = dataGridView1.CurrentRow.Index;
+            string command = $"delete from Client where id = '{dataGridView1.Rows[a].Cells[0].Value}'";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command, connectionString);
+            SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+        }
         public void Query(string command) 
         {
             SqlConnection sqlConnection = new SqlConnection(connectionString);
@@ -44,14 +56,19 @@ namespace krnenavishy
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            string command = "select * from Client";
-            Query(command);
+            UpdateData();
 
             string command1 = "SELECT MAX(id) FROM Client";
             int result;
             QueryMax(command1, out result);
 
             amountOfLabel.Text = result + " / " + result;
+        }
+
+        public void UpdateData()
+        {
+            string command = "select * from Client";
+            Query(command);
         }
 
         private void allDataButton_Click(object sender, EventArgs e)
@@ -84,10 +101,10 @@ namespace krnenavishy
             int result;
             QueryMax(command, out result);
 
-            int temp = 3018 + Convert.ToInt32(amountTB.Text);
-            string command1 = "select * from Client where id >= 3018 and id < " + temp + "";
+            int temp = 3118 + Convert.ToInt32(amountTB.Text);
+            string command1 = "select * from Client where id >= 3118 and id < " + temp + "";
             Query(command1);
-            pageNumber = Convert.ToInt32(amountTB.Text) + 3017;
+            pageNumber = Convert.ToInt32(amountTB.Text) + 3117;
             amountOfLabel.Text = pageNumber + " / " + result;
         }
 
@@ -302,12 +319,23 @@ namespace krnenavishy
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            QueryDelete();
+
             string command = "select * from Client";
-
-            int a = dataGridView1.CurrentRow.Index;
-            dataGridView1.Rows.Remove(dataGridView1.Rows[a]);
-
             Query(command);
+        }
+
+        private void openEditFormButton_Click(object sender, EventArgs e)
+        {
+            EditForm editForm = new EditForm();
+            editForm.Owner = this;
+            editForm.ShowDialog();
+            
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectedID = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
         }
     }
 }
