@@ -33,7 +33,7 @@ namespace krnenavishy
                 "'" + EmailTextBox.Text + "'," +
                 "'" + PhoneTextBox.Text + "'," +
                 "'" + genderType + "'," +
-                "'" + PhotoTextBox.Text + "')";
+                "'" + "Клиенты/" + PhotoTextBox.Text + ")";
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
@@ -51,7 +51,7 @@ namespace krnenavishy
                 "Email = '" + EmailTextBox.Text + "', " +
                 "Phone = '" + PhoneTextBox.Text + "', " +
                 "GenderCode = '" + genderType + "'," +
-                "PhotoPath = '" + PhotoTextBox.Text + "' where id = '" + IDTextBox.Text + "'";
+                "PhotoPath = 'Клиенты/ + " + PhotoTextBox.Text + "' where id = '" + IDTextBox.Text + "'";
             SqlConnection sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand(command, sqlConnection);
@@ -87,6 +87,8 @@ namespace krnenavishy
                 label10.Visible = true;
                 cancelButton.Visible = true;
                 saveButton.Visible = true;
+                loadPhotoButton.Visible = true;
+                pictureBox1.Visible = true;
             }
             else
             {
@@ -115,6 +117,8 @@ namespace krnenavishy
                 saveButton.Visible = false;
                 editUserButton.Visible = true;
                 newUserButton.Visible = true;
+                loadPhotoButton.Visible = false;
+                pictureBox1.Visible = false;
             }
         }
         private void EditForm_Load(object sender, EventArgs e)
@@ -128,11 +132,23 @@ namespace krnenavishy
             FirstNameTextBox.MaxLength = 50;
             LastNameTextBox.MaxLength = 50;
             PatronymicTextBox.MaxLength = 50;
+            PhotoTextBox.Enabled = false;
+
+            
         }
 
         private void editUserButton_Click(object sender, EventArgs e)
         {
             type = 1;
+            
+            if (type == 1)
+            {
+                IDTextBox.Enabled = false;
+            }
+            else if (type == 0)
+            {
+                IDTextBox.Visible = false;
+            }
 
             string command = "select * from Client where id = " + index + "";
             SqlConnection sqlConnection = new SqlConnection(connectionString);
@@ -156,7 +172,14 @@ namespace krnenavishy
                 }
             }
             sqlConnection.Close();
-
+            if (genderType == "1")
+            {
+                mRadioButton.Checked = true;
+            }
+            else if (genderType == "0")
+            {
+                wRadioButton.Checked = true;
+            }
             VisibleChange(true);
 
         }
@@ -177,19 +200,25 @@ namespace krnenavishy
                 genderType= "0";
             }
 
-            if (type == 1)
+            if (EmailTextBox.Text.Contains("@") && EmailTextBox.Text.Contains("."))
             {
-                QueryUpdate();
-                MessageBox.Show("Данные успешно добавлены");
-                VisibleChange(false);
+                if (EmailTextBox.Text.IndexOf(".") > EmailTextBox.Text.IndexOf("@"))
+                {
+                    if (type == 1)
+                    {
+                        QueryUpdate();
+                        MessageBox.Show("Данные успешно добавлены");
+                        VisibleChange(false);
+                    }
+                    else
+                    {
+                        QueryInsert();
+                        MessageBox.Show("Данные успешно добавлены");
+                        VisibleChange(false);
+                    }
+                }
             }
-            else
-            {
-                QueryInsert();
-                MessageBox.Show("Данные успешно добавлены");
-                VisibleChange(false);
-            }
-
+            
             (Owner as MainDataForm).UpdateData();
         }
 
@@ -197,6 +226,16 @@ namespace krnenavishy
         {
             type = 0;
             VisibleChange(true);
+
+            if (type == 1)
+            {
+                IDTextBox.Enabled = false;
+            }
+            else if (type == 0)
+            {
+                IDTextBox.Visible = false;
+                label1.Visible = false;
+            }
         }
 
         private void FirstNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -212,7 +251,7 @@ namespace krnenavishy
 
         private void LastNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Char.IsDigit(e.KeyChar)))
+            if (Char.IsDigit(e.KeyChar))
             {
                 if (e.KeyChar != (char)Keys.Back || e.KeyChar != (char)Keys.Subtract)
                 {
@@ -223,11 +262,46 @@ namespace krnenavishy
 
         private void PatronymicTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((Char.IsDigit(e.KeyChar)))
+            if (Char.IsDigit(e.KeyChar))
             {
                 if (e.KeyChar != (char)Keys.Back || e.KeyChar != (char)Keys.Subtract)
                 {
                     e.Handled = true;
+                }
+            }
+        }
+
+        private void PhoneTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar))
+            {
+                if (e.KeyChar != (char)Keys.Back && e.KeyChar != '-' && e.KeyChar != '+' && e.KeyChar != '(' && e.KeyChar != ')')
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void loadPhotoButton_Click(object sender, EventArgs e)
+        {
+            Bitmap image;
+            OpenFileDialog open_dialog = new OpenFileDialog(); 
+            open_dialog.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"; 
+            if (open_dialog.ShowDialog() == DialogResult.OK) 
+            {
+                try
+                {
+                    image = new Bitmap(open_dialog.FileName);
+                    this.pictureBox1.Size = image.Size;
+                    pictureBox1.Image = image;
+                    pictureBox1.Invalidate();
+                    string photoname = open_dialog.FileName.Remove(0,71).ToString();
+                    PhotoTextBox.Text = photoname;
+                }
+                catch
+                {
+                    DialogResult result = MessageBox.Show("Невозможно открыть выбранный файл",
+                    "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

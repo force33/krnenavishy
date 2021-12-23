@@ -68,17 +68,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -87,6 +88,111 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Properties\Clients\1.jpg" />
+    <Content Include="Properties\Clients\10.jpg" />
+    <Content Include="Properties\Clients\11.jpg" />
+    <Content Include="Properties\Clients\12.jpg" />
+    <Content Include="Properties\Clients\13.jpg" />
+    <Content Include="Properties\Clients\14.jpg" />
+    <Content Include="Properties\Clients\15.jpg" />
+    <Content Include="Properties\Clients\16.jpg" />
+    <Content Include="Properties\Clients\17.jpg" />
+    <Content Include="Properties\Clients\18.jpg" />
+    <Content Include="Properties\Clients\19.jpg" />
+    <Content Include="Properties\Clients\2.jpg" />
+    <Content Include="Properties\Clients\20.jpg" />
+    <Content Include="Properties\Clients\21.jpg" />
+    <Content Include="Properties\Clients\22.jpg" />
+    <Content Include="Properties\Clients\23.jpg" />
+    <Content Include="Properties\Clients\24.jpg" />
+    <Content Include="Properties\Clients\25.jpg" />
+    <Content Include="Properties\Clients\26.jpg" />
+    <Content Include="Properties\Clients\27.jpg" />
+    <Content Include="Properties\Clients\28.jpg" />
+    <Content Include="Properties\Clients\29.jpg" />
+    <Content Include="Properties\Clients\3.jpg" />
+    <Content Include="Properties\Clients\30.jpg" />
+    <Content Include="Properties\Clients\31.jpg" />
+    <Content Include="Properties\Clients\32.jpg" />
+    <Content Include="Properties\Clients\33.jpg" />
+    <Content Include="Properties\Clients\34.jpg" />
+    <Content Include="Properties\Clients\35.jpg" />
+    <Content Include="Properties\Clients\36.jpg" />
+    <Content Include="Properties\Clients\37.jpg" />
+    <Content Include="Properties\Clients\38.jpg" />
+    <Content Include="Properties\Clients\39.jpg" />
+    <Content Include="Properties\Clients\4.jpg" />
+    <Content Include="Properties\Clients\40.jpg" />
+    <Content Include="Properties\Clients\41.jpg" />
+    <Content Include="Properties\Clients\42.jpg" />
+    <Content Include="Properties\Clients\43.jpg" />
+    <Content Include="Properties\Clients\44.jpg" />
+    <Content Include="Properties\Clients\47.jpg" />
+    <Content Include="Properties\Clients\48.jpg" />
+    <Content Include="Properties\Clients\5.jpg" />
+    <Content Include="Properties\Clients\6.jpg" />
+    <Content Include="Properties\Clients\7.jpg" />
+    <Content Include="Properties\Clients\8.jpg" />
+    <Content Include="Properties\Clients\9.jpg" />
+    <Content Include="Properties\Clients\m1.jpg" />
+    <Content Include="Properties\Clients\m10.jpg" />
+    <Content Include="Properties\Clients\m11.jpg" />
+    <Content Include="Properties\Clients\m12.jpg" />
+    <Content Include="Properties\Clients\m13.jpg" />
+    <Content Include="Properties\Clients\m14.jpg" />
+    <Content Include="Properties\Clients\m15.jpg" />
+    <Content Include="Properties\Clients\m16.jpg" />
+    <Content Include="Properties\Clients\m17.jpg" />
+    <Content Include="Properties\Clients\m18.jpg" />
+    <Content Include="Properties\Clients\m19.jpg" />
+    <Content Include="Properties\Clients\m2.jpg" />
+    <Content Include="Properties\Clients\m20.jpg" />
+    <Content Include="Properties\Clients\m21.jpg" />
+    <Content Include="Properties\Clients\m22.jpg" />
+    <Content Include="Properties\Clients\m23.jpg" />
+    <Content Include="Properties\Clients\m24.jpg" />
+    <Content Include="Properties\Clients\m25.jpg" />
+    <Content Include="Properties\Clients\m26.jpg" />
+    <Content Include="Properties\Clients\m27.jpg" />
+    <Content Include="Properties\Clients\m28.jpg" />
+    <Content Include="Properties\Clients\m29.jpg" />
+    <Content Include="Properties\Clients\m3.jpg" />
+    <Content Include="Properties\Clients\m30.jpg" />
+    <Content Include="Properties\Clients\m31.jpg" />
+    <Content Include="Properties\Clients\m32.jpg" />
+    <Content Include="Properties\Clients\m33.jpg" />
+    <Content Include="Properties\Clients\m34.jpg" />
+    <Content Include="Properties\Clients\m35.jpg" />
+    <Content Include="Properties\Clients\m36.jpg" />
+    <Content Include="Properties\Clients\m37.jpg" />
+    <Content Include="Properties\Clients\m38.jpg" />
+    <Content Include="Properties\Clients\m39.jpg" />
+    <Content Include="Properties\Clients\m4.jpg" />
+    <Content Include="Properties\Clients\m40.jpg" />
+    <Content Include="Properties\Clients\m41.jpg" />
+    <Content Include="Properties\Clients\m42.jpg" />
+    <Content Include="Properties\Clients\m43.jpg" />
+    <Content Include="Properties\Clients\m44.jpg" />
+    <Content Include="Properties\Clients\m45.jpg" />
+    <Content Include="Properties\Clients\m46.jpg" />
+    <Content Include="Properties\Clients\m47.jpg" />
+    <Content Include="Properties\Clients\m48.jpg" />
+    <Content Include="Properties\Clients\m49.jpg" />
+    <Content Include="Properties\Clients\m5.jpg" />
+    <Content Include="Properties\Clients\m50.jpg" />
+    <Content Include="Properties\Clients\m6.jpg" />
+    <Content Include="Properties\Clients\m7.jpg" />
+    <Content Include="Properties\Clients\m8.jpg" />
+    <Content Include="Properties\Clients\m9.jpg" />
+    <Content Include="Properties\Clients\m96.jpg" />
+    <Content Include="Properties\Clients\m97.jpg" />
+    <Content Include="Properties\Clients\m98.jpg" />
+    <Content Include="Properties\Clients\m99.jpg" />
+    <None Include="Resources\beauty_logo.png" />
+    <None Include="Resources\Image1.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

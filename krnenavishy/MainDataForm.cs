@@ -85,14 +85,28 @@ namespace krnenavishy
 
         private void backPageButton_Click(object sender, EventArgs e)
         {
-            string command = "select * from Client where id >= 3018 and id <= " + firstItem.ToString() + "";
+            string command1 = "SELECT MAX(id) FROM Client";
+            int result;
+            QueryMax(command1, out result);
+
+            string command = "select * from Client where id >= 3118 and id <= 3168";
             Query(command);
+
+            int temp = 3118 + 50;
+            amountOfLabel.Text = temp + " / " + result;
         }
 
         private void nextPageButton_Click(object sender, EventArgs e)
         {
-            string command = "select * from Client where id >=  and id <= 3117";
+            string command1 = "SELECT MAX(id) FROM Client";
+            int result;
+            QueryMax(command1, out result);
+
+            string command = "select * from Client where id >=3168  and id <= "+result+"";
             Query(command);
+
+            int temp = 3117 + 100;
+            amountOfLabel.Text = temp + " / " + result;
         }
 
         private void searchInfoButton_Click(object sender, EventArgs e)
@@ -224,16 +238,6 @@ namespace krnenavishy
                     int total2 = result2 - dataGridView1.Rows.Count;
                     amountOfLabel.Text = total2 + " / " + result2;
                 }
-
-                //string command = "select * from Client where Email like '" + param + "%'";
-                //Query(command);
-
-                //string command1 = "SELECT MAX(id) FROM Client";
-                //int result;
-                //QueryMax(command1, out result);
-
-                //int total = result - dataGridView1.Rows.Count;
-                //amountOfLabel.Text = total + " / " + result;
             }
             else if (index == 2) //телефон
             {
@@ -273,16 +277,6 @@ namespace krnenavishy
                     int total3 = result3 - dataGridView1.Rows.Count;
                     amountOfLabel.Text = total3 + " / " + result3;
                 }
-
-                //string command = "select * from Client where Phone like '" + param + "%'";
-                //Query(command);
-
-                //string command1 = "SELECT MAX(id) FROM Client";
-                //int result;
-                //QueryMax(command1, out result);
-
-                //int total = result - dataGridView1.Rows.Count;
-                //amountOfLabel.Text = total + " / " + result;
             }
         }
 
@@ -314,7 +308,7 @@ namespace krnenavishy
         }
         private void birthdayButton_Click(object sender, EventArgs e)
         {
-            string command = "select * from Client where Birthday = GETDATE()";
+            
         }
 
         private void deleteButton_Click(object sender, EventArgs e)

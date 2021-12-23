@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainDataForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.backPageButton = new System.Windows.Forms.Button();
             this.allDataButton = new System.Windows.Forms.Button();
@@ -50,7 +51,9 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.addUserLabel = new System.Windows.Forms.Label();
             this.openEditFormButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -64,12 +67,13 @@
             // 
             // backPageButton
             // 
+            this.backPageButton.BackColor = System.Drawing.Color.Transparent;
             this.backPageButton.Location = new System.Drawing.Point(12, 415);
             this.backPageButton.Name = "backPageButton";
             this.backPageButton.Size = new System.Drawing.Size(75, 23);
             this.backPageButton.TabIndex = 1;
             this.backPageButton.Text = "<=";
-            this.backPageButton.UseVisualStyleBackColor = true;
+            this.backPageButton.UseVisualStyleBackColor = false;
             this.backPageButton.Click += new System.EventHandler(this.backPageButton_Click);
             // 
             // allDataButton
@@ -97,7 +101,7 @@
             this.numberLabel.AutoSize = true;
             this.numberLabel.Location = new System.Drawing.Point(549, 420);
             this.numberLabel.Name = "numberLabel";
-            this.numberLabel.Size = new System.Drawing.Size(53, 13);
+            this.numberLabel.Size = new System.Drawing.Size(52, 13);
             this.numberLabel.TabIndex = 4;
             this.numberLabel.Text = "Записей:";
             // 
@@ -105,7 +109,7 @@
             // 
             this.amountTB.Location = new System.Drawing.Point(608, 417);
             this.amountTB.Name = "amountTB";
-            this.amountTB.Size = new System.Drawing.Size(100, 20);
+            this.amountTB.Size = new System.Drawing.Size(100, 21);
             this.amountTB.TabIndex = 5;
             // 
             // searchInfoButton
@@ -123,7 +127,7 @@
             this.amountOfLabel.AutoSize = true;
             this.amountOfLabel.Location = new System.Drawing.Point(387, 420);
             this.amountOfLabel.Name = "amountOfLabel";
-            this.amountOfLabel.Size = new System.Drawing.Size(12, 13);
+            this.amountOfLabel.Size = new System.Drawing.Size(11, 13);
             this.amountOfLabel.TabIndex = 7;
             this.amountOfLabel.Text = "/";
             // 
@@ -174,7 +178,7 @@
             this.searchLabel.AutoSize = true;
             this.searchLabel.Location = new System.Drawing.Point(708, 82);
             this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(86, 13);
+            this.searchLabel.Size = new System.Drawing.Size(84, 13);
             this.searchLabel.TabIndex = 14;
             this.searchLabel.Text = "Поиск по слову";
             // 
@@ -182,7 +186,7 @@
             // 
             this.searchTB.Location = new System.Drawing.Point(711, 125);
             this.searchTB.Name = "searchTB";
-            this.searchTB.Size = new System.Drawing.Size(78, 20);
+            this.searchTB.Size = new System.Drawing.Size(78, 21);
             this.searchTB.TabIndex = 15;
             this.searchTB.Text = "Введите текст";
             this.searchTB.Click += new System.EventHandler(this.searchTB_Click);
@@ -203,7 +207,7 @@
             this.sortLabel.AutoSize = true;
             this.sortLabel.Location = new System.Drawing.Point(709, 147);
             this.sortLabel.Name = "sortLabel";
-            this.sortLabel.Size = new System.Drawing.Size(85, 13);
+            this.sortLabel.Size = new System.Drawing.Size(87, 13);
             this.sortLabel.TabIndex = 17;
             this.sortLabel.Text = "Сортировка по:";
             // 
@@ -238,12 +242,13 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(712, 355);
+            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(74)))), ((int)(((byte)(109)))));
+            this.deleteButton.Location = new System.Drawing.Point(712, 369);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(75, 50);
+            this.deleteButton.Size = new System.Drawing.Size(75, 36);
             this.deleteButton.TabIndex = 22;
             this.deleteButton.Text = "удалить";
-            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addUserLabel
@@ -251,7 +256,7 @@
             this.addUserLabel.AutoSize = true;
             this.addUserLabel.Location = new System.Drawing.Point(715, 243);
             this.addUserLabel.Name = "addUserLabel";
-            this.addUserLabel.Size = new System.Drawing.Size(68, 26);
+            this.addUserLabel.Size = new System.Drawing.Size(64, 26);
             this.addUserLabel.TabIndex = 23;
             this.addUserLabel.Text = "Изменение \r\nданных:";
             this.addUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,11 +271,23 @@
             this.openEditFormButton.UseVisualStyleBackColor = true;
             this.openEditFormButton.Click += new System.EventHandler(this.openEditFormButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::krnenavishy.Properties.Resources.beauty_logo;
+            this.pictureBox1.Location = new System.Drawing.Point(715, 298);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(68, 68);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(793, 446);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.openEditFormButton);
             this.Controls.Add(this.addUserLabel);
             this.Controls.Add(this.deleteButton);
@@ -293,10 +310,13 @@
             this.Controls.Add(this.allDataButton);
             this.Controls.Add(this.backPageButton);
             this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainDataForm";
-            this.Text = "Form1";
+            this.Text = "Мордочка";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,6 +345,7 @@
         private System.Windows.Forms.Label addUserLabel;
         private System.Windows.Forms.Button openEditFormButton;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
